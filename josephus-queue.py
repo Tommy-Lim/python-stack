@@ -7,16 +7,16 @@ def josephus(names, num):
     while len(qq)>1:
         for i in range(1,num+1):
             if i == num:
-                print(i, qq.popleft(), "eliminated")
+                print(i, qq.popleft(), "Eliminated")
                 # qq.popleft()
             else:
                 person = qq.popleft()
                 qq.append(person)
-                print(i, person, "saved")
+                print(i, person, "Passed")
                 # append(qq.popleft())
 
-    print(qq.pop(), "survived")
+    print("*** ", qq.pop(), "Wins ***")
 
 
 names = ["Charlie", "Moe", "Curly", "johhny", "milo"]
-josephus(names, 2)
+josephus(names, 5)
