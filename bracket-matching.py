@@ -22,7 +22,7 @@ class Stack:
 def test_brackets(string):
     ss = Stack()
     for char in string:
-        if char == "{" or char == "(" or char == "[":
+        if char in "{[(":
             ss.push(char)
             print(ss)
         elif char =="}" and ss.pop() == "{":
@@ -31,7 +31,7 @@ def test_brackets(string):
             print(ss)
         elif char =="]" and ss.pop() == "[":
             print(ss)
-        elif char == "}" or char == ")" or char == "]":
+        elif char in "]})":
             print(False)
             return False
     if len(ss) == 0:
