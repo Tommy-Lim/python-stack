@@ -19,6 +19,7 @@ class Stack:
     def __str__(self):
         return "{}".format(self.data)
 
+# my solution
 def test_brackets(string):
     ss = Stack()
     for char in string:
@@ -40,6 +41,34 @@ def test_brackets(string):
     else:
         print(False)
         return False
+
+# steve's solution
+def test_brackets_steve(ss):
+  opening = "([{"
+  closing = ")]}"
+  stack = []
+  for letter in ss:
+    # put all opening characters on the stack to wait to be matched.
+    if letter in opening:
+      stack.append(letter)
+    if letter in closing:
+      # grab the first thing off the stack and make sure it matches.
+      first = stack.pop()
+      if first == "[" and not letter == "]":
+        return False
+      if first == "(" and not letter == ")":
+        return False
+      if first == "{" and not letter == "}":
+        return False
+
+  # if there's anything left in the stack that means
+  # something was left waiting to be matched.
+  if len(stack) > 0:
+    return False
+
+  return True
+
+
 
 # True
 test_brackets('abc(123)')
